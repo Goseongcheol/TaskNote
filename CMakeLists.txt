@@ -1,0 +1,67 @@
+cmake_minimum_required(VERSION 3.16)
+
+project(TaskNote VERSION 0.1 LANGUAGES CXX)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+
+find_package(Qt6 REQUIRED COMPONENTS Widgets Sql)
+
+set(PROJECT_SOURCES
+
+    main.cpp
+
+    src/mainwindow.cpp
+    src/mainwindow.h
+    src/mainwindow.ui
+
+    src/core/PageID.h
+    src/core/PageManager.h
+    src/core/PageManager.cpp
+
+    src/pages/Calendar.ui
+    src/pages/Calendar.h
+    src/pages/Calendar.cpp
+
+    src/pages/ToDoList.ui
+    src/pages/ToDoList.h
+    src/pages/ToDoList.cpp
+
+    src/pages/Memo.ui
+    src/pages/Memo.h
+    src/pages/Memo.cpp
+
+    src/pages/Setting.ui
+    src/pages/Setting.h
+    src/pages/Setting.cpp
+
+
+)
+
+qt_add_executable(TaskNote
+    MANUAL_FINALIZATION
+    ${PROJECT_SOURCES}
+
+
+)
+
+target_link_libraries(TaskNote PRIVATE Qt6::Widgets Qt6::Sql)
+
+target_include_directories(TaskNote PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}/src
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/core
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/data
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/pages
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/resources
+)
+
+set_target_properties(TaskNote PROPERTIES
+    WIN32_EXECUTABLE TRUE
+)
+
+qt_finalize_executable(TaskNote)

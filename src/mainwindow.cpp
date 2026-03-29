@@ -8,6 +8,7 @@
 #include "ToDoList.h"
 #include "Memo.h"
 #include "Setting.h"
+#include "DatabaseManager.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -17,6 +18,7 @@ MainWindow::MainWindow(QWidget *parent)
     , m_todoList(nullptr)
     , m_memo(nullptr)
     , m_setting(nullptr)
+    , m_dbManager(nullptr)
 {
     ui->setupUi(this);
 
@@ -33,10 +35,18 @@ MainWindow::~MainWindow()
 
 void MainWindow::setupPages()
 {
-    m_calendar = new Calendar(this);
     m_todoList = new ToDoList(this);
     m_memo = new Memo(this);
     m_setting = new Setting(this);
+
+    m_dbManager = new DatabaseManager(this);
+
+    if (!m_dbManager->initialize()) {
+        qDebug() << "Database initialization failed.";
+    }
+
+    // dbManager생성후 calendar에 dbmanager 전달
+    m_calendar = new Calendar(m_dbManager, this);
 
     m_pageManager->registerPage(PageID::Calendar, m_calendar);
     m_pageManager->registerPage(PageID::TodoList, m_todoList);

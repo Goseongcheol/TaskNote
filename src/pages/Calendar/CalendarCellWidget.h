@@ -3,6 +3,7 @@
 
 #include <QFrame>
 #include <QDate>
+#include <QStringList>
 
 class QLabel;
 
@@ -18,6 +19,7 @@ public:
 
     void setCurrentMonth(bool currentMonth);
     void setSelected(bool selected);
+    void setScheduleTitles(const QStringList& titles);
 
 signals:
     void clicked(const QDate& date);
@@ -28,10 +30,13 @@ protected:
 private:
     void updateStyle();
 
+    QStringList m_scheduleTitles;
     QLabel* m_dayLabel;
+    QLabel* m_scheduleLabel;
     QDate m_date;
     bool m_isCurrentMonth = true;
     bool m_isSelected = false;
+
 };
 
 #endif // CALENDARCELLWIDGET_H

@@ -12,18 +12,26 @@ CalendarCellWidget::CalendarCellWidget(QWidget *parent)
     setMinimumSize(100, 80);
     setAttribute(Qt::WA_Hover, true);
 
+    // 날짜 라벨
     m_dayLabel = new QLabel(this);
     m_dayLabel->setObjectName("dayLabel");
     m_dayLabel->setAlignment(Qt::AlignCenter | Qt::AlignCenter);
 
+    // 일정 미리보기 라벨 (추가)
+    m_scheduleLabel = new QLabel(this);
+    m_scheduleLabel->setObjectName("scheduleLabel");
+    m_scheduleLabel->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
+    m_scheduleLabel->setVisible(false);
+
+    // 레이아웃
     auto* layout = new QVBoxLayout(this);
     layout->setContentsMargins(8, 6, 8, 6);
     layout->addWidget(m_dayLabel);
+    layout->addWidget(m_scheduleLabel);   // 추가
     layout->addStretch();
 
     updateStyle();
 }
-
 
 void CalendarCellWidget::setDate(const QDate &date)
 {
@@ -42,14 +50,12 @@ void CalendarCellWidget::setCurrentMonth(bool currentMonth)
     updateStyle();
 }
 
-//cliecked 탔을떄 이벤트
 void CalendarCellWidget::setSelected(bool selected)
 {
     m_isSelected = selected;
     updateStyle();
 }
 
-//마우스 눌림 이벤트
 void CalendarCellWidget::mousePressEvent(QMouseEvent *event)
 {
     QFrame::mousePressEvent(event);
@@ -86,5 +92,37 @@ void CalendarCellWidget::updateStyle()
                       " background-color: white;"
                       " padding: 0px;"
                       "}"
+
+                      "QLabel#scheduleLabel {"
+                      " background-color: #148a43;"
+                      " color: white;"
+                      " border-radius: 6px;"
+                      " padding-left: 6px;"
+                      " min-height: 20px;"
+                      " font-size: 11px;"
+                      "}"
                       ).arg(bgColor, borderColor, textColor, hoverColor));
+}
+
+void CalendarCellWidget::setScheduleTitles(const QStringList& titles)
+{
+    m_scheduleTitles = titles;
+
+    if (titles.isEmpty()) {
+        m_scheduleLabel->hide();
+        return;
+    }
+
+    QString text;
+
+    if (titles.size() == 1) {
+        text = titles.first();
+    } else {
+        text = QString("%1 외 %2건")
+                   .arg(titles.first())
+                   .arg(titles.size() - 1);
+    }
+
+    m_scheduleLabel->setText(text);
+    m_scheduleLabel->show();
 }

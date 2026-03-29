@@ -41,14 +41,14 @@ set(PROJECT_SOURCES
     src/pages/Setting.h
     src/pages/Setting.cpp
 
-
+    src/data/DatabaseManager.cpp
+    src/data/DatabaseManager.h
 )
 
 qt_add_executable(TaskNote
     MANUAL_FINALIZATION
     ${PROJECT_SOURCES}
-
-
+    src/data/ScheduleItem.h
 
 )
 
@@ -63,6 +63,7 @@ target_include_directories(TaskNote PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/src/pages/Calendar
     ${CMAKE_CURRENT_SOURCE_DIR}/src/pages/ToDoList
     ${CMAKE_CURRENT_SOURCE_DIR}/src/pages/Memo
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/data
     ${CMAKE_CURRENT_SOURCE_DIR}/src/resources
 )
 

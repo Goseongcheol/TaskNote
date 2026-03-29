@@ -14,6 +14,7 @@ class Calendar;
 class ToDoList;
 class Memo;
 class Setting;
+class DatabaseManager;
 
 class MainWindow : public QMainWindow
 {
@@ -31,6 +32,7 @@ private:
     ToDoList* m_todoList;
     Memo* m_memo;
     Setting* m_setting;
+    DatabaseManager* m_dbManager;
 
     void setupPages();
     void setupConnections();

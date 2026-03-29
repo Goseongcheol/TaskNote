@@ -23,17 +23,19 @@ set(PROJECT_SOURCES
     src/core/PageManager.h
     src/core/PageManager.cpp
 
-    src/pages/Calendar.ui
-    src/pages/Calendar.h
-    src/pages/Calendar.cpp
+    src/pages/Calendar/Calendar.ui
+    src/pages/Calendar/Calendar.h
+    src/pages/Calendar/Calendar.cpp
+    src/pages/Calendar/CalendarCellWidget.h
+    src/pages/Calendar/CalendarCellWidget.cpp
 
-    src/pages/ToDoList.ui
-    src/pages/ToDoList.h
-    src/pages/ToDoList.cpp
+    src/pages/ToDoList/ToDoList.ui
+    src/pages/ToDoList/ToDoList.h
+    src/pages/ToDoList/ToDoList.cpp
 
-    src/pages/Memo.ui
-    src/pages/Memo.h
-    src/pages/Memo.cpp
+    src/pages/Memo/Memo.ui
+    src/pages/Memo/Memo.h
+    src/pages/Memo/Memo.cpp
 
     src/pages/Setting.ui
     src/pages/Setting.h
@@ -47,6 +49,7 @@ qt_add_executable(TaskNote
     ${PROJECT_SOURCES}
 
 
+
 )
 
 target_link_libraries(TaskNote PRIVATE Qt6::Widgets Qt6::Sql)
@@ -57,6 +60,9 @@ target_include_directories(TaskNote PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/src/core
     ${CMAKE_CURRENT_SOURCE_DIR}/src/data
     ${CMAKE_CURRENT_SOURCE_DIR}/src/pages
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/pages/Calendar
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/pages/ToDoList
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/pages/Memo
     ${CMAKE_CURRENT_SOURCE_DIR}/src/resources
 )
 

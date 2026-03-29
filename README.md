@@ -27,8 +27,8 @@ TaskNote/
 │   │   ├── PageID
 │   │   └── PageManager
 │   ├── Data/
-│   │   ├── 
-│   │   └── 
+│   │   ├── DatabaseManager
+│   │   └── ScheduleItem
 │   └── resources/
 ├── CMakeLists.txt
 ├── main
@@ -61,11 +61,18 @@ TaskNote/
   * 페이지 이동 및 흐름 제어
   * 뒤로가기 / 특정 페이지 이동 처리
 
+### 🔹 data/        
+
+* **DatabaseManager**
+
+  * .sqliteDB 생성 / 연결
+  * 일정 저장 / 불러오기 / 삭제 처리
+
 ---
 ## ✨ Features
 
 * 멀티 페이지 구조 (QStackedWidget)
-* 모듈 분리 구조 (Page / Core / Network)
+* 모듈 분리 구조 (Page / Core / Data)
 
 ---
 

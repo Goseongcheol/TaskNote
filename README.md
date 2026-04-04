@@ -17,10 +17,8 @@ TaskNote/
 │   │   │   ├──CalendarCellWidget
 │   │   ├── TodoList/
 │   │   │   ├──ToDoList
-│   │   │   ├──
 │   │   ├── Memo/
 │   │   │   ├──Memo
-│   │   │   ├──
 │   │   └── Setting/
 │   │       └── Setting
 │   ├── core/
@@ -49,10 +47,10 @@ TaskNote/
 
 * 각 기능별 UI 페이지 (View 역할)
 
-  * CalendarPage
-  * TodoPage
-  * MemoPage
-  * SettingPage
+  * Calendar
+  * TodoList
+  * Memo
+  * Setting
 
 ### 🔹 core/        
 
@@ -61,18 +59,30 @@ TaskNote/
   * 페이지 이동 및 흐름 제어
   * 뒤로가기 / 특정 페이지 이동 처리
 
+* **PageID**
+
+  * PageID enum
+
 ### 🔹 data/        
 
 * **DatabaseManager**
 
   * .sqliteDB 생성 / 연결
-  * 일정 저장 / 불러오기 / 삭제 처리
+  * 일정 추가 / 저장 / 불러오기 / 삭제
+
+* **ScheduleItem**
+
+  * ScheduleItem struct
+
+### 🔹 resources/
+
+* 이미지 리소스
 
 ---
 ## ✨ Features
 
 * 멀티 페이지 구조 (QStackedWidget)
-* 모듈 분리 구조 (Page / Core / Data)
+* 모듈 분리 구조 (Pages / Core / Data)
 
 ---
 

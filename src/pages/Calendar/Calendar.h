@@ -22,6 +22,7 @@ public:
     explicit Calendar(DatabaseManager* dbManager, QWidget *parent = nullptr);
     ~Calendar();
 
+    void updateToDo();
 
 private slots:
     void onPrevMonthClicked();
@@ -35,10 +36,10 @@ private:
     Ui::Calendar *ui;
 
     void createCalendarCells();
-    void updateCalendar();
     void updateHeader();
     void updateSelection();
     void displayScheduleTable(const QList<ScheduleItem>& schedules);
+    void updateCalendar();
 
     DatabaseManager* m_dbManager;
     QVector<CalendarCellWidget*> m_cells;

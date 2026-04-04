@@ -26,6 +26,10 @@ MainWindow::MainWindow(QWidget *parent)
 
     setupPages();
     setupConnections();
+
+    connect(m_todoList, &ToDoList::scheduleChanged,
+            m_calendar, &Calendar::updateToDo);
+
 }
 
 MainWindow::~MainWindow()
@@ -35,7 +39,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::setupPages()
 {
-    m_todoList = new ToDoList(this);
+
     m_memo = new Memo(this);
     m_setting = new Setting(this);
 
@@ -47,6 +51,9 @@ void MainWindow::setupPages()
 
     // dbManager생성후 calendar에 dbmanager 전달
     m_calendar = new Calendar(m_dbManager, this);
+    m_todoList = new ToDoList(m_dbManager, this);
+
+
 
     m_pageManager->registerPage(PageID::Calendar, m_calendar);
     m_pageManager->registerPage(PageID::TodoList, m_todoList);

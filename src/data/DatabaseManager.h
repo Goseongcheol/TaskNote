@@ -23,8 +23,12 @@ public:
     QList<ScheduleItem> getSchedulesByDate(const QDate& date);
     QList<ScheduleItem> getSchedulesInRange(const QDate& startDate, const QDate& endDate);
 
-    bool addSchedule(const QDate& date, const QString& title, const QString& content);
-    bool updateSchedule(int id, const QString& title, const QString& content);
+    QList<ScheduleItem> getAllSchedules();
+
+    ScheduleItem getScheduleById(int id);
+
+    bool addSchedule(const ScheduleItem& item);
+    bool updateSchedule(const ScheduleItem& item);
     bool deleteSchedule(int id);
 
 private:

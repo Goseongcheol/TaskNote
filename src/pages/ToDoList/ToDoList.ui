@@ -19,32 +19,8 @@
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="1">
     <layout class="QGridLayout" name="gridLayout_2">
-     <item row="7" column="0">
-      <widget class="QLabel" name="label_4">
-       <property name="text">
-        <string>내용</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="0">
-      <widget class="QLabel" name="label_2">
-       <property name="text">
-        <string>상태</string>
-       </property>
-      </widget>
-     </item>
-     <item row="6" column="0">
-      <widget class="QDateEdit" name="dateEdit"/>
-     </item>
-     <item row="5" column="0">
-      <widget class="QLabel" name="label_3">
-       <property name="text">
-        <string>날짜</string>
-       </property>
-      </widget>
-     </item>
      <item row="2" column="0">
-      <widget class="QLineEdit" name="lineEdit"/>
+      <widget class="QLineEdit" name="title"/>
      </item>
      <item row="0" column="0">
       <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -62,27 +38,23 @@
         </spacer>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton">
+        <widget class="QPushButton" name="add_Button">
          <property name="text">
-          <string>추가</string>
+          <string>일정 생성</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_2">
+        <widget class="QPushButton" name="delete_Button">
          <property name="text">
-          <string>삭제</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButton_3">
-         <property name="text">
-          <string>저장</string>
+          <string>일정 삭제</string>
          </property>
         </widget>
        </item>
       </layout>
+     </item>
+     <item row="6" column="0">
+      <widget class="QDateEdit" name="dateEdit"/>
      </item>
      <item row="1" column="0">
       <layout class="QHBoxLayout" name="horizontalLayout">
@@ -95,11 +67,82 @@
        </item>
       </layout>
      </item>
-     <item row="4" column="0">
-      <widget class="QLineEdit" name="lineEdit_2"/>
+     <item row="3" column="0">
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>상태</string>
+       </property>
+      </widget>
      </item>
      <item row="8" column="0">
-      <widget class="QTextEdit" name="textEdit"/>
+      <widget class="QLabel" name="label_4">
+       <property name="text">
+        <string>내용</string>
+       </property>
+      </widget>
+     </item>
+     <item row="10" column="0">
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <spacer name="horizontalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Orientation::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="save_Button">
+         <property name="text">
+          <string>저장</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>날짜</string>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="0">
+      <widget class="QTextEdit" name="content"/>
+     </item>
+     <item row="4" column="0">
+      <widget class="QComboBox" name="status">
+       <item>
+        <property name="text">
+         <string>선택</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>대기</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>진행 중</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>완료</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>보류</string>
+        </property>
+       </item>
+      </widget>
      </item>
     </layout>
    </item>

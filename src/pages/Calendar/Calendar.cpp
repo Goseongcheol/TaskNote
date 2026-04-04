@@ -2,6 +2,7 @@
 #include "ui_Calendar.h"
 #include "DatabaseManager.h"
 #include "ScheduleItem.h"
+#include "ToDoList.h"
 
 #include <QGridLayout>
 #include <QLabel>
@@ -37,7 +38,6 @@ Calendar::Calendar(DatabaseManager* dbManager, QWidget *parent)
     connect(ui->tableWidget, &QTableWidget::cellClicked,
             this, &Calendar::showScheduleDetail);
 
-
     connect(ui->prevMonthButton, &QPushButton::clicked,
             this, &Calendar::onPrevMonthClicked);
 
@@ -50,6 +50,15 @@ Calendar::Calendar(DatabaseManager* dbManager, QWidget *parent)
     });
 }
 
+void Calendar::updateToDo()
+{
+    updateCalendar();
+    QTimer::singleShot(0, this, [this]() {
+        updateScheduleView(m_selectedDate);
+    });
+}
+
+//캘린더 셀 추가
 void Calendar::createCalendarCells()
 {
     for (int row = 0; row < 6; ++row) {
@@ -150,6 +159,7 @@ void Calendar::updateScheduleView(const QDate& date)
     displayScheduleTable(m_scheduleItems);
 
     ui->textEdit->clear();
+    ui->tableWidget->clearSelection();
 }
 
 void Calendar::displayScheduleTable(const QList<ScheduleItem>& schedules)
@@ -182,6 +192,7 @@ void Calendar::showScheduleDetail(int row, int column)
 
     ui->textEdit->setPlainText(m_scheduleItems[row].content);
 }
+
 Calendar::~Calendar()
 {
     delete ui;

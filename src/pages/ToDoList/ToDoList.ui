@@ -14,10 +14,74 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true">    QLineEdit, QDateEdit, QComboBox, QTextEdit {
+        background-color: rgb(252, 252, 252);
+        border: 1px solid rgb(205, 210, 215);
+        border-radius: 8px;
+        padding: 6px 10px;
+        color: rgb(40, 40, 40);
+        selection-background-color: rgb(80, 150, 255);
+    }</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
+   <item row="1" column="2">
+    <widget class="QListWidget" name="done_ListWidget"/>
+   </item>
+   <item row="0" column="0">
+    <widget class="QLabel" name="label_5">
+     <property name="styleSheet">
+      <string notr="true">font-weight: bold;
+font-size: 12px;
+padding: 4px 10px;
+border-radius: 10px;
+color: rgb(230, 230, 230);
+background-color: rgb(115, 108, 97);</string>
+     </property>
+     <property name="text">
+      <string>Not started</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="3">
+    <widget class="QLabel" name="label_8">
+     <property name="styleSheet">
+      <string notr="true">font-weight: bold;
+font-size: 12px;
+padding: 4px 10px;
+border-radius: 10px;
+color: rgb(255, 225, 205);
+background-color: rgb(150, 105, 75);</string>
+     </property>
+     <property name="text">
+      <string>Stop</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="3">
+    <widget class="QListWidget" name="stop_ListWidget"/>
+   </item>
    <item row="0" column="1">
+    <widget class="QLabel" name="label_6">
+     <property name="styleSheet">
+      <string notr="true">font-weight: bold;
+font-size: 12px;
+padding: 4px 10px;
+border-radius: 10px;
+color: rgb(210, 235, 255);
+background-color: rgb(47, 109, 180);</string>
+     </property>
+     <property name="text">
+      <string>In progress</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="QListWidget" name="ing_ListWidget"/>
+   </item>
+   <item row="1" column="0" rowspan="3">
+    <widget class="QListWidget" name="wait_ListWidget"/>
+   </item>
+   <item row="0" column="4" rowspan="2">
     <layout class="QGridLayout" name="gridLayout_2">
      <item row="2" column="0">
       <widget class="QLineEdit" name="title"/>
@@ -39,6 +103,9 @@
        </item>
        <item>
         <widget class="QPushButton" name="add_Button">
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
          <property name="text">
           <string>일정 생성</string>
          </property>
@@ -46,6 +113,9 @@
        </item>
        <item>
         <widget class="QPushButton" name="delete_Button">
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
          <property name="text">
           <string>일정 삭제</string>
          </property>
@@ -98,6 +168,9 @@
        </item>
        <item>
         <widget class="QPushButton" name="save_Button">
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
          <property name="text">
           <string>저장</string>
          </property>
@@ -146,8 +219,20 @@
      </item>
     </layout>
    </item>
-   <item row="0" column="0" rowspan="3">
-    <widget class="QListWidget" name="listWidget"/>
+   <item row="0" column="2">
+    <widget class="QLabel" name="label_7">
+     <property name="styleSheet">
+      <string notr="true">font-weight: bold;
+font-size: 12px;
+padding: 4px 10px;
+border-radius: 10px;
+color: rgb(215, 255, 220);
+background-color: rgb(63, 140, 92);</string>
+     </property>
+     <property name="text">
+      <string>Done</string>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>

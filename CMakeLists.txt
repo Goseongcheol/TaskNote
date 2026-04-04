@@ -49,6 +49,7 @@ qt_add_executable(TaskNote
     MANUAL_FINALIZATION
     ${PROJECT_SOURCES}
     src/data/ScheduleItem.h
+    src/pages/ToDoList/ToDoListItemWidget.h src/pages/ToDoList/ToDoListItemWidget.cpp
 
 )
 

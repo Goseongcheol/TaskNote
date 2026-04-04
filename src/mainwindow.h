@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "ThemeMode.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -23,6 +24,10 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow() override;
+
+//모드 변경
+private slots:
+    void applyTheme(ThemeMode mode);
 
 private:
     Ui::MainWindow *ui;

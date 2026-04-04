@@ -17,6 +17,10 @@ public:
 
 private:
     Ui::Memo *ui;
+
+    void saveMemo();
+    void loadMemo();
+    QString memoFilePath() const;
 };
 
 #endif // MEMO_H

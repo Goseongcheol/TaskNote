@@ -30,6 +30,9 @@ MainWindow::MainWindow(QWidget *parent)
     connect(m_todoList, &ToDoList::scheduleChanged,
             m_calendar, &Calendar::updateToDo);
 
+    connect(m_setting, &Setting::themeChanged,
+            this, &MainWindow::applyTheme);
+
 }
 
 MainWindow::~MainWindow()
@@ -83,4 +86,37 @@ void MainWindow::setupConnections()
 
 }
 
+void MainWindow::applyTheme(ThemeMode mode)
+{
+    if (mode == ThemeMode::Light) {
+        qApp->setStyleSheet(R"(
+            QWidget {
+                background-color: white;
+                color: black;
+            }
+
+            QPushButton {
+                background-color: rgb(245,245,245);
+                color: black;
+                border: 1px solid gray;
+                border-radius: 5px;
+            }
+        )");
+    }
+    else {
+        qApp->setStyleSheet(R"(
+            QWidget {
+                background-color: rgb(40,40,40);
+                color: white;
+            }
+
+            QPushButton {
+                background-color: rgb(60,60,60);
+                color: white;
+                border: 1px solid gray;
+                border-radius: 5px;
+            }
+        )");
+    }
+}
 

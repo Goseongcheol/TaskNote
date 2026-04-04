@@ -16,6 +16,11 @@
   <property name="styleSheet">
    <string notr="true"/>
   </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QTextEdit" name="memo_TextEdit"/>
+   </item>
+  </layout>
  </widget>
  <resources/>
  <connections/>

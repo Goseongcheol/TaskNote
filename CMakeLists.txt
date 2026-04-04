@@ -50,6 +50,7 @@ qt_add_executable(TaskNote
     ${PROJECT_SOURCES}
     src/data/ScheduleItem.h
     src/pages/ToDoList/ToDoListItemWidget.h src/pages/ToDoList/ToDoListItemWidget.cpp
+    src/core/ThemeMode.h
 
 )
 

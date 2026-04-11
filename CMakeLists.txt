@@ -12,8 +12,9 @@ set(CMAKE_AUTORCC ON)
 find_package(Qt6 REQUIRED COMPONENTS Widgets Sql)
 
 set(PROJECT_SOURCES
-
     main.cpp
+    resource.qrc
+    app.rc
 
     src/mainwindow.cpp
     src/mainwindow.h
@@ -22,6 +23,11 @@ set(PROJECT_SOURCES
     src/core/PageID.h
     src/core/PageManager.h
     src/core/PageManager.cpp
+    src/core/ThemeMode.h
+
+    src/data/DatabaseManager.cpp
+    src/data/DatabaseManager.h
+    src/data/ScheduleItem.h
 
     src/pages/Calendar/Calendar.ui
     src/pages/Calendar/Calendar.h
@@ -32,6 +38,8 @@ set(PROJECT_SOURCES
     src/pages/ToDoList/ToDoList.ui
     src/pages/ToDoList/ToDoList.h
     src/pages/ToDoList/ToDoList.cpp
+    src/pages/ToDoList/ToDoListItemWidget.h
+    src/pages/ToDoList/ToDoListItemWidget.cpp
 
     src/pages/Memo/Memo.ui
     src/pages/Memo/Memo.h
@@ -40,21 +48,17 @@ set(PROJECT_SOURCES
     src/pages/Setting.ui
     src/pages/Setting.h
     src/pages/Setting.cpp
-
-    src/data/DatabaseManager.cpp
-    src/data/DatabaseManager.h
 )
 
 qt_add_executable(TaskNote
     MANUAL_FINALIZATION
     ${PROJECT_SOURCES}
-    src/data/ScheduleItem.h
-    src/pages/ToDoList/ToDoListItemWidget.h src/pages/ToDoList/ToDoListItemWidget.cpp
-    src/core/ThemeMode.h
-
 )
 
-target_link_libraries(TaskNote PRIVATE Qt6::Widgets Qt6::Sql)
+target_link_libraries(TaskNote PRIVATE
+    Qt6::Widgets
+    Qt6::Sql
+)
 
 target_include_directories(TaskNote PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}
@@ -65,7 +69,6 @@ target_include_directories(TaskNote PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/src/pages/Calendar
     ${CMAKE_CURRENT_SOURCE_DIR}/src/pages/ToDoList
     ${CMAKE_CURRENT_SOURCE_DIR}/src/pages/Memo
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/data
     ${CMAKE_CURRENT_SOURCE_DIR}/src/resources
 )
 

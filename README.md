@@ -3,6 +3,12 @@
 일정(Calendar), 메모(Memo), 할 일(Todo)을 하나로 통합한 데스크톱 애플리케이션
 Qt Widgets 기반으로 제작된 멀티 페이지 UI 프로젝트
 
+## 🚀 Version
+
+**v1.0**  
+📅 Development Period: **2026.03.22 ~ 2026.04.11**  
+🛠 Status: **Completed**
+
 ---
 
 ## 📂 Project Structure
@@ -28,8 +34,11 @@ TaskNote/
 │   │   ├── DatabaseManager
 │   │   └── ScheduleItem
 │   └── resources/
+│       └── TaskNote.ico
 ├── CMakeLists.txt
 ├── main
+├── resource.qrc
+├── app.rc
 └── README.md
 ```
 

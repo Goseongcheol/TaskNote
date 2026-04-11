@@ -46,7 +46,7 @@
       <item>
        <widget class="QPushButton" name="calendarButton">
         <property name="text">
-         <string>캘린더</string>
+         <string>Calendar</string>
         </property>
        </widget>
       </item>

@@ -6,7 +6,6 @@
 #include <QDir>
 #include <QFileInfo>
 #include <QStandardPaths>
-#include <QDebug>
 #include <QDateTime>
 
 DatabaseManager::DatabaseManager(QObject* parent)

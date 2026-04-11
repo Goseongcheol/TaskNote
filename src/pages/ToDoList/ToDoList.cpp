@@ -17,7 +17,6 @@ ToDoList::ToDoList(DatabaseManager* dbManager, QWidget *parent)
     connect(ui->done_ListWidget, &QListWidget::itemClicked, this, &ToDoList::onToDoItemClicked);
     connect(ui->stop_ListWidget, &QListWidget::itemClicked, this, &ToDoList::onToDoItemClicked);
 
-
     connect(ui->add_Button, &QPushButton::clicked, this, &ToDoList::addButtonClicked);
     connect(ui->save_Button, &QPushButton::clicked, this, &ToDoList::saveButtonClicked);
     connect(ui->delete_Button, &QPushButton::clicked, this, &ToDoList::deleteButtonClicked);
@@ -259,33 +258,6 @@ void ToDoList::setupStyle()
         "    border: 4px solid rgb(80, 150, 255);"
         "    border-radius: 10px;"
         "    background-color: rgba(80, 150, 255, 20);"
-        "}"
-
-        "QLineEdit, QDateEdit, QComboBox, QTextEdit {"
-        "    background-color: rgb(252, 252, 252);"
-        "    border: 1px solid rgb(205, 210, 215);"
-        "    border-radius: 8px;"
-        "    padding: 6px 10px;"
-        "    color: rgb(40, 40, 40);"
-        "    selection-background-color: rgb(80, 150, 255);"
-        "}"
-
-        "QPushButton {"
-        "    min-height: 32px;"
-        "    padding: 6px 14px;"
-        "    border-radius: 8px;"
-        "    border: 1px solid rgb(200, 200, 200);"
-        "    background-color: rgb(250, 250, 250);"
-        "    color: rgb(45, 45, 45);"
-        "    font-weight: 600;"
-        "}"
-
-        "QPushButton:hover {"
-        "    background-color: rgb(240, 245, 250);"
-        "}"
-
-        "QPushButton:pressed {"
-        "    background-color: rgb(225, 232, 240);"
         "}"
 
         "QScrollBar:vertical {"

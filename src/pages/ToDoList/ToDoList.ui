@@ -14,14 +14,7 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">    QLineEdit, QDateEdit, QComboBox, QTextEdit {
-        background-color: rgb(252, 252, 252);
-        border: 1px solid rgb(205, 210, 215);
-        border-radius: 8px;
-        padding: 6px 10px;
-        color: rgb(40, 40, 40);
-        selection-background-color: rgb(80, 150, 255);
-    }</string>
+   <string notr="true"/>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">

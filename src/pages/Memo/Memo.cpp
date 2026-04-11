@@ -9,7 +9,6 @@
 #include <QDateTime>
 #include <QShortcut>
 #include <QKeySequence>
-#include <QDebug>
 
 Memo::Memo(QWidget *parent)
     : QWidget(parent)
